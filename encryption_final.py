@@ -7,11 +7,10 @@ import sys
 def generate_key():
     return Fernet.generate_key()
 
-# loads encryption key to be used
 def load_key(key):
     return Fernet(key)
 
-# function to encrypt files, writing to them in binary for correct encrpytion (wb)
+# function to encrypt files, writing to them in binary for correct encrpytion
 def encrypt_file(file_path, key):
     fernet = load_key(key)
     with open(file_path, 'rb') as file:
@@ -89,7 +88,6 @@ while True:
         print("Encryption Key: ", key.decode())
         input("Press Enter after you have copied the encryption key.")
     
-# asks user for decrytion key to start decryption process
     else:
         key = input("Enter the encryption key (leave blank to exit): ").strip()
         if key == "":
@@ -140,3 +138,4 @@ while True:
     if next_action == 'no':
         print("Exiting script.")
         break
+
